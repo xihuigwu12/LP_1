@@ -1,0 +1,300 @@
+/* ======== 全体の設定 ======== */
+html{
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    /* (1) ヘッダーを画面上部に固定 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    /* (2) 中身を左右に配置（Flexbox） */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* (3) 見た目の調整 */
+    padding: 10px 40px;
+    background-color: rgba(255, 255, 255, 0.9); /* 少しだけ透明な白 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* ヘッダーの下に影をつける */
+}
+.logo {
+    font-size: 1.5rem; /* 24px */
+    font-weight: bold;
+}
+
+.pc-nav ul {
+    display: flex; /* li要素を横並びにする */
+    list-style: none; /* 点（・）を消す */
+}
+
+nav a {
+    /* リンクの見た目調整 */
+    text-decoration: none; /* 下線を消す */
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block; /* クリック範囲を広げる */
+}
+/* リンクにマウスが乗った時のスタイル */
+nav a:hover {
+    background-color: #919191;
+    border-radius: 5px;
+}
+
+body {
+    font-family: sans-serif;
+    color: #333;
+}
+
+h1, h2 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* ======== ヒーローセクション ======== */
+.hero {
+    /* 画面の高さいっぱいに広げる */
+    height: 100vh;
+    padding-top: 80px; /* ヘッダーの高さ分だけ中身を押し下げる */
+    
+    /* 背景画像の設定 */
+    background-image: url('https://picsum.photos/1600/900'); /* ランダムな画像を表示 */
+    background-size: cover; /* 画像をセクションいっぱいに広げる */
+    background-position: center; /* 画像の中央を表示 */
+    
+
+    /* 文字の色 */
+    color: white;
+    
+    /* 文字を上下左右中央に配置（Flexbox） */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 文字に影をつけて読みやすくする */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero h1 {
+    font-size: 4rem; /* 4rem = 64px (remはルート要素のフォントサイズを基準とする単位) */
+}
+
+.hero p {
+    font-size: 1.5rem; /* 1.5rem = 24px */
+}
+
+/* ======== ハンバーガーメニュー関連 ======== */
+
+/* ハンバーガーアイコンのボタン本体 */
+.hamburger-menu{
+    display: none;
+    position: relative;
+    background-color: none;
+    cursor: pointer;
+    z-index: 200;
+}
+
+/*ハンバーガーの３本線*/
+.hamburger-menu span{
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: all 0.4s ease;
+}
+
+/* 全画面ナビゲーション（初期状態は非表示） */
+.fullscreen-nav {
+    display: none; /* JSでflexに変えるまで非表示 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.636); /* 参考サイトに寄せた半透明の黒 */
+    transition: opacity 0.3s, visibility 0.3;
+    z-index: 150;
+}
+
+.fullscreen-nav ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.fullscreen-nav li {
+    margin: 20px 0;
+    
+}
+
+.fullscreen-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+/* ======== アバウトセクション ======== */
+.about {
+    /* 上下の余白 */
+    padding: 80px 50px;
+  
+    /* コンテンツを中央揃えにする */
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem; /* 2.5rem = 40px */
+    
+}
+
+/* ======== サービスセクション ======== */
+.service {
+    padding: 80px 40px;
+    text-align: center;
+    background-color: #f7f7f7; /* 少しグレーの背景色 */
+}
+.service h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px; /* 見出しとカードの間の余白 */
+}
+.card-container {
+    /* (1) Flexboxでカードを横並びに */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.card {
+    /* (2) カード自体のデザイン */
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px; /* 角を丸くする */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* カードに影をつける */
+    text-align: center; /* カード内のテキストは左揃えに */
+}
+.card img {
+    width: 200px;
+    height: 150px;
+    border-radius: 10%; /* 画像を円形にする */
+    object-fit: cover; /* 画像の比率を保ったままトリミング */
+    margin-bottom: 20px;
+}
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* ======== コンタクトセクション ======== */
+.contact {
+    padding: 80px 40px;
+    text-align: center;
+}
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.contact p {
+    margin-bottom: 30px; /* 説明文とボタンの間の余白 */
+}
+.btn {
+    /* (1) ボタンの基本デザイン */
+    display: inline-block;
+    background-color: #ff6f61; /* 目立つ色（コーラルピンク） */
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none; /* リンクの下線を消す */
+    font-weight: bold;
+    
+    /* (2) ホバー時のアニメーション設定 */
+    transition: all 0.3s ease;
+}
+/* (3) ボタンにマウスが乗った時のスタイル */
+.btn:hover {
+    background-color: #e65a50; /* 少し暗い色に */
+    transform: translateY(-3px); /* 少し上に動かす */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 影を濃くして浮き上がったように見せる */
+}
+
+
+/* ======== フッター ======== */
+footer {
+    /* 背景色 */
+    background-color: #333;
+    /* 文字色 */
+    color: white;
+    /* 上下の余白 */
+    padding: 20px 0px;
+    /* 文字を中央揃え */
+    text-align: center;
+}
+
+/* ======== レスポンシブ対応（768px以下）======== */
+@media (max-width: 768px) {
+
+    /* ---- ヘッダー ---- */
+    .pc-nav {
+        display: none; /* PC用ナビを隠す */
+    }
+    .hamburger-menu {
+        display: block; /* ハンバーガーアイコンを表示する */
+    }
+
+    /* ---- ヒーローセクション ---- */
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* ---- サービスセクション ---- */
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ---- is-activeがついた時のスタイル（ここに移動） ---- */
+    /* ハンバーガーアイコンを「×」印に変形させる */
+    .hamburger-menu.is-active span:nth-of-type(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger-menu.is-active span:nth-of-type(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.is-active span:nth-of-type(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* 全画面ナビゲーションを表示させる */
+    .fullscreen-nav.is-active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+/*アクティブ時
+ナビゲーション非表示。
+ハンバーガー表示
+
+非アクティブ状態
+ナビゲーション表示
+バツ印
+*/
